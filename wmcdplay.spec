@@ -13,7 +13,6 @@ URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 Patch0:		%{name}-c++.patch.gz
 Patch1:		%{name}-lib.patch
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
