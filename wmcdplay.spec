@@ -14,10 +14,9 @@ Patch0:		wmcdplay-c++.patch.gz
 Patch1:		wmcdplay-lib.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
-%define		_applnkdir	%{_datadir}/applnk
 
 %description 
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
