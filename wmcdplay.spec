@@ -2,7 +2,7 @@ Summary:	CD player applet for WindowMaker
 Summary(pl):	Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
-Release:	7
+Release:	8
 License:	GPL
 Group:		X11/Window Managers/Tools
 #Source0:	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
@@ -15,6 +15,7 @@ Patch2:		%{name}-ComplexProgramTargetNoMan.patch
 Icon:		wmcdplay.gif
 #URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 BuildRequires:	XFree86-devel
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,21 +40,19 @@ xmkmf
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}} \
-        $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+        $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README ARTWORK
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-%doc README ARTWORK
-
-#%%{_applnkdir}/DockApplets/wmcdplay.desktop
+%{_desktopdir}/docklets/wmcdplay.desktop
