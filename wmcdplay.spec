@@ -2,7 +2,7 @@ Summary:	CD player applet for WindowMaker
 Summary(pl):	Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -15,7 +15,6 @@ Patch2:		%{name}-ComplexProgramTargetNoMan.patch
 Icon:		wmcdplay.gif
 URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 BuildRequires:	XFree86-devel
-BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
@@ -35,7 +34,10 @@ WindowMakera.
 
 %build
 xmkmf
-%{__make} CFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -fno-implicit-templates "
+%{__make} \
+	CC=%{__cc} \
+	CXX=%{__cc} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
