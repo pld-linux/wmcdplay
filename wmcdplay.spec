@@ -15,7 +15,6 @@ URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define 	_prefix		/usr/X11R6
 
 %description
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
