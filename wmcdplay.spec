@@ -56,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %doc README ARTWORK
 
-#%{_applnkdir}/DockApplets/wmcdplay.desktop
+#%%{_applnkdir}/DockApplets/wmcdplay.desktop
