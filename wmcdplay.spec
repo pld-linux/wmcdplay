@@ -4,6 +4,7 @@ Name:		wmcdplay
 Version:	1.0Beta1
 Release:	4
 Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 License:	GPL
 Source0:	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
@@ -32,7 +33,7 @@ WindowMakera.
 
 %build
 xmkmf
-%{__make} CFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-exceptions -fno-implicit-templates "
+%{__make} CFLAGS="%{rpmcflags} -fno-rtti -fno-exceptions -fno-implicit-templates "
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -43,8 +44,6 @@ install %{name} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
-
-strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf README ARTWORK
 
