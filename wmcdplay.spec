@@ -16,7 +16,7 @@ BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 Buildroot: 	/tmp/%{name}-%{version}-root
 
-%define _prefix         /usr/X11R6
+%define _prefix	/usr/X11R6
 
 %description 
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
@@ -61,31 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Sat May 15 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.0Beta1-2]
-- modified a bit spec file for PLD use,
-- added wmcdpaly-lib.patch,
-- fixed permissions,
-- package is FHS 2.0 compliant.
-
-* Mon Nov 16 1998 Fryguy_ <fryguy@falsehope.com>
-  [wmcdplay-1.0Beta1-1]
-- Added setuid bit on wmcdplay binary so non root users can access
-  the /dev/cdrom.
-- Release 1.0 Beta1 05/09/98
-  - Added some error checking.
-  - "-a artwork_file" is now "-f artwork_file", sorry ;-).
-  - Added "-a" command line argument for AfterStep users.
-  - Added "-position position" command line argument.
-  - Command line arguments, "-a", "-w" and "-s" are now toggle,
-     so if you enable one at compile-time, you can override
-     it at run-time.
-  - Track selection actually works now??
-      (anyone notice a recurring theme here??)
-  - Seperate update interval for when drive is empty.
-      (thanks to .....)
-  - Fixed problem with (some?) SCSI devices refusing to
-      give LBA values. Thanks to the linux ide-scsi-emulator.
-  - Now looks in some known directories for artwork files as
-      a last resort.
-  - Improved artwork loading (it was very brain-dead).
-  - Formatting changes in artwork files (ARTWORK documentation
-      is now up-to-date).
+- package is FHS 2.0 compliant,
+- modified spec file for PLD use,
+- based on spec written by Fryguy_ <fryguy@falsehope.com>.
