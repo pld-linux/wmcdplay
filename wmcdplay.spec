@@ -7,7 +7,7 @@ License:	GPL
 Group:		X11/Window Managers/Tools
 #Source0:	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
 Source0:	%{name}.tgz
-# Source-md5:	3b84b902186ba65770c268841ca12ae2
+# Source0-md5:	3b84b902186ba65770c268841ca12ae2
 Source1:	%{name}.desktop
 Patch0:		%{name}-c++.patch.gz
 Patch1:		%{name}-lib.patch
