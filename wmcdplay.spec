@@ -6,10 +6,10 @@ Release:	3
 Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Copyright: 	GPL
-URL: 		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.htm
 Source0: 	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
 Source1: 	wmcdplay.desktop
 Icon:           wmcdplay.gif
+URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 Patch0:		wmcdplay-c++.patch.gz
 Patch1:		wmcdplay-lib.patch
 BuildPrereq:	XFree86-devel
