@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,ARTWORK}.gz
+%doc *.gz
 %{_applnkdir}/DockApplets/wmcdplay.desktop
 
 %attr(755,root,root) %{_bindir}/%{name}
