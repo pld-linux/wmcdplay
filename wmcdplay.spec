@@ -17,6 +17,7 @@ BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define 	_prefix		/usr/X11R6
+%define		_applnkdir	%{_datadir}/applnk
 
 %description 
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
@@ -36,10 +37,10 @@ make CFLAGS="$RPM_OPT_FLAGS"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}} \
-        $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+        $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
 
@@ -53,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,ARTWORK}.gz
-/usr/X11R6/share/applnk/DockApplets/wmcdplay.desktop
+%{_applnkdir}/DockApplets/wmcdplay.desktop
 
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
