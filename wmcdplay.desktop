@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmcdplay
+Name=WmCDplay
 Comment=CD player
 Comment[pl]=Odtwarzacz p³yt CD
 Exec=wmcdplay -w -s
