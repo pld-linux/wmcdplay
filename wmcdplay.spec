@@ -12,8 +12,8 @@ Icon:           wmcdplay.gif
 URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 Patch0:		wmcdplay-c++.patch.gz
 Patch1:		wmcdplay-lib.patch
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
