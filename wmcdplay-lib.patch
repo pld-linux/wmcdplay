@@ -1,0 +1,11 @@
+--- wmcdplay.cc~	Sat Sep  5 17:11:26 1998
++++ wmcdplay.cc	Sun May 16 00:26:14 1999
+@@ -20,7 +20,7 @@
+ #define CLASS       "WMCDPlay"
+ 
+ // User defines - custom
+-#define SYSARTDIR   "/usr/X11R6/lib/X11/wmcdplay/"
++#define SYSARTDIR   "/usr/X11R6/share/wmcdplay/"
+ #define CDDEV       "/dev/cdrom"
+ #define BACKCOLOR   "#282828"
+ #define LEDCOLOR    "green"
