@@ -2,13 +2,13 @@ Summary: 	CD player applet for WindowMaker
 Summary(pl):	Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
-Release:	2
+Release:	3
 Group:          X11/Window Managers/Tools
 Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
 Copyright: 	GPL
 URL: 		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.htm
 Source0: 	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
-Source1: 	wmcdplay.wmconfig
+Source1: 	wmcdplay.desktop
 Icon:           wmcdplay.gif
 Patch0:		wmcdplay-c++.patch.gz
 Patch1:		wmcdplay-lib.patch
@@ -36,10 +36,10 @@ make CFLAGS="$RPM_OPT_FLAGS"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}} \
-        $RPM_BUILD_ROOT/etc/X11/wmconfig
+        $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
 
@@ -53,9 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,ARTWORK}.gz
-/etc/X11/wmconfig/%{name}
-%attr(755,root,root) %{_bindir}/%{name}
+/etc/X11/applnk/DockApplets/wmcdplay.desktop
 
+%attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 
 %changelog
