@@ -16,7 +16,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
+%define 	_prefix		/usr/X11R6
 
 %description 
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
