@@ -47,7 +47,6 @@ install %{name} $RPM_BUILD_ROOT%{_bindir}
 
 cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-gzip -9nf README ARTWORK
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -56,6 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-%doc *.gz
+%doc README ARTWORK
 
 #%{_applnkdir}/DockApplets/wmcdplay.desktop
