@@ -31,7 +31,7 @@ Wmcdplay jest odtwarzaczem p³yt CD, zaprojektowanym dla Doku WindowMakera.
 
 %build
 xmkmf
-make CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
