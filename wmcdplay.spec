@@ -1,27 +1,68 @@
-%define name wmcdplay
-%define version 1.0Beta1
-%define release 1
+Summary: 	CD player applet for WindowMaker
+Summary(pl):	Dokowalny odtwarzacz CD dla WindowMakera
+Name:		wmcdplay
+Version:	1.0Beta1
+Release:	2
+Group:          X11/Window Managers/Tools
+Group(pl):      X11/Zarz±dcy Okien/Narzêdzia
+Copyright: 	GPL
+URL: 		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.htm
+Source0: 	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
+Source1: 	wmcdplay.wmconfig
+Icon:           wmcdplay.gif
+Patch0:		wmcdplay-c++.patch.gz
+Patch1:		wmcdplay-lib.patch
+BuildPrereq:	XFree86-devel
+BuildPrereq:	xpm-devel
+Buildroot: 	/tmp/%{name}-%{version}-root
 
-%define builddir $RPM_BUILD_DIR/%{name}
+%description 
+Wmcdplay is a CD player applet designed for the Windowmaker dock.
 
-Summary: CD player applet
+%description -l pl
+Wmcdplay jest odtwarzaczem p³yt CD, zaprojektowanym dla Doku WindowMakera.
 
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Group: X11/Utilities
-Copyright: GPL
-Vendor: Sam Hawker <shawkie@geocities.com>
-Url: http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.htm
-Packager: Fryguy_ <fryguy@falsehope.com>
-Distribution: Freshmeat RPMs
-Source0: %{name}.tgz
-Source1: %{name}.wmconfig
-Patch: %{name}-c++.patch.gz
-Buildroot: /tmp/%{name}-%{version}-%{release}-root
-Icon: %{name}.gif
+%prep
+%setup -q -n %{name}
+%patch0 -p1
+%patch1 -p0
+
+%build
+xmkmf
+make CFLAGS="$RPM_OPT_FLAGS"
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/{usr/X11R6/{bin,share/wmcdplay},etc/X11/wmconfig}
+
+install wmcdplay $RPM_BUILD_ROOT/usr/X11R6/bin
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmcdplay
+
+cp -a XPM/*.art $RPM_BUILD_ROOT/usr/X11R6/share/wmcdplay
+
+strip $RPM_BUILD_ROOT/usr/X11R6/bin/wmcdplay
+
+gzip -9nf README ARTWORK
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc {README,ARTWORK}.gz
+/etc/X11/wmconfig/wmcdplay
+%attr(755,root,root) /usr/X11R6/bin/wmcdplay
+
+/usr/X11R6/share/wmcdplay
 
 %changelog
+* Sat May 15 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.0Beta1-2]
+- modified a bit spec file for PLD use,
+- added wmcdpaly-lib.patch,
+- fixed permissions,
+- package is FHS 2.0 compliant.
+
 * Mon Nov 16 1998 Fryguy_ <fryguy@falsehope.com>
   [wmcdplay-1.0Beta1-1]
 - Added setuid bit on wmcdplay binary so non root users can access
@@ -45,38 +86,3 @@ Icon: %{name}.gif
   - Improved artwork loading (it was very brain-dead).
   - Formatting changes in artwork files (ARTWORK documentation
       is now up-to-date).
-
-%description 
-Wmcdplay is a CD player applet designed for the
-Windowmaker dock.
-
-%prep
-
-%setup -n %{name}
-
-%patch -p1
-
-%build
-xmkmf
-make CFLAGS="$RPM_OPT_FLAGS"
-
-%install
-if [ -d $RPM_BUILD_ROOT ]; then rm -r $RPM_BUILD_ROOT ; fi
-mkdir -p $RPM_BUILD_ROOT/usr/X11R6/{bin,share/wmcdplay}
-mkdir -p $RPM_BUILD_ROOT/etc/X11/wmconfig
-strip %{builddir}/wmcdplay
-rm -f %{builddir}/XPM/standard.art
-cp %{builddir}/wmcdplay $RPM_BUILD_ROOT/usr/X11R6/bin
-cp %{builddir}/XPM/*.art $RPM_BUILD_ROOT/usr/X11R6/share/wmcdplay
-cp $RPM_SOURCE_DIR/%{name}.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
-
-%files
-%doc README ARTWORK COPYING
-%attr(644,root,root) %config(missingok) /etc/X11/wmconfig/wmcdplay
-%attr(4755,root,root) /usr/X11R6/bin/wmcdplay
-%attr(755,root,root) %dir /usr/X11R6/share/wmcdplay
-%attr(644,root,root) /usr/X11R6/share/wmcdplay/*.art
-
-%clean
-rm -r $RPM_BUILD_ROOT
-rm -r %{builddir}
