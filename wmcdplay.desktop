@@ -1,7 +1,8 @@
 [Desktop Entry]
 Name=WmCDplay
 Comment=CD player
-Comment[pl]=Odtwarzacz p≥yt CD
+Comment[pl]=Odtwarzacz p≈Çyt CD
 Exec=wmcdplay -w -s
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
