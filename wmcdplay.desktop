@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmcdplay
+Comment=CD player
+Comment[pl]=Odtwarzacz p³yt CD
+Exec=wmcdplay -w -s
+Terminal=0
+Type=Application
