@@ -14,7 +14,7 @@ Patch0:		wmcdplay-c++.patch.gz
 Patch1:		wmcdplay-lib.patch
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
-Buildroot: 	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix	/usr/X11R6
 
