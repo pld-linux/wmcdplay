@@ -16,6 +16,8 @@ BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 Buildroot: 	/tmp/%{name}-%{version}-root
 
+%define _prefix         /usr/X11R6
+
 %description 
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
 
@@ -33,14 +35,15 @@ make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{usr/X11R6/{bin,share/wmcdplay},etc/X11/wmconfig}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}} \
+        $RPM_BUILD_ROOT/etc/X11/wmconfig
 
-install wmcdplay $RPM_BUILD_ROOT/usr/X11R6/bin
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmcdplay
+install %{name} $RPM_BUILD_ROOT%{_bindir}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
-cp -a XPM/*.art $RPM_BUILD_ROOT/usr/X11R6/share/wmcdplay
+cp -a XPM/*.art $RPM_BUILD_ROOT%{_datadir}/%{name}
 
-strip $RPM_BUILD_ROOT/usr/X11R6/bin/wmcdplay
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf README ARTWORK
 
@@ -50,10 +53,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {README,ARTWORK}.gz
-/etc/X11/wmconfig/wmcdplay
-%attr(755,root,root) /usr/X11R6/bin/wmcdplay
+/etc/X11/wmconfig/%{name}
+%attr(755,root,root) %{_bindir}/%{name}
 
-/usr/X11R6/share/wmcdplay
+%{_datadir}/%{name}
 
 %changelog
 * Sat May 15 1999 Piotr Czerwiñski <pius@pld.org.pl>
