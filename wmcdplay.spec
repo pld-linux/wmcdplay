@@ -17,7 +17,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix		/usr/X11R6
 
-%description 
+%description
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
 
 %description -l pl
