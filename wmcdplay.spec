@@ -12,7 +12,6 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-c++.patch.gz
 Patch1:		%{name}-lib.patch
 Patch2:		%{name}-ComplexProgramTargetNoMan.patch
-Icon:		wmcdplay.gif
 #URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
 BuildRequires:	XFree86-devel
 BuildRequires:	libstdc++-devel
