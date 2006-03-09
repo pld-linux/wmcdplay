@@ -33,7 +33,7 @@ WindowMakera.
 %build
 xmkmf
 %{__make} \
-	CXX=%{__cc} \
+	CXX="%{__cc}" \
 	CFLAGS="%{rpmcflags}"
 
 %install
