@@ -1,5 +1,5 @@
 Summary:	CD player applet for WindowMaker
-Summary(pl.UTF-8):   Dokowalny odtwarzacz CD dla WindowMakera
+Summary(pl.UTF-8):	Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
 Release:	8
