@@ -1,5 +1,5 @@
 Summary:	CD player applet for WindowMaker
-Summary(pl):	Dokowalny odtwarzacz CD dla WindowMakera
+Summary(pl.UTF-8):   Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
 Release:	8
@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Wmcdplay is a CD player applet designed for the Windowmaker dock.
 
-%description -l pl
-Wmcdplay jest odtwarzaczem p≥yt CD, zaprojektowanym dla Doku
+%description -l pl.UTF-8
+Wmcdplay jest odtwarzaczem p≈Çyt CD, zaprojektowanym dla Doku
 WindowMakera.
 
 %prep
