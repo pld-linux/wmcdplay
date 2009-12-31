@@ -2,7 +2,7 @@ Summary:	CD player applet for WindowMaker
 Summary(pl.UTF-8):	Dokowalny odtwarzacz CD dla WindowMakera
 Name:		wmcdplay
 Version:	1.0Beta1
-Release:	8
+Release:	9
 License:	GPL
 Group:		X11/Window Managers/Tools
 #Source0:	http://www.geocities.com/SiliconValley/Vista/2471/%{name}.tgz
@@ -13,8 +13,9 @@ Patch0:		%{name}-c++.patch.gz
 Patch1:		%{name}-lib.patch
 Patch2:		%{name}-ComplexProgramTargetNoMan.patch
 #URL:		http://www.geocities.com/SiliconValley/Vista/2471/wmcdplay.html
-BuildRequires:	XFree86-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
